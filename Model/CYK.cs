@@ -8,7 +8,7 @@ namespace cyk_grammar_tester.Model
 {
     class CYK
     {
-        private string[,] Table { get; set; }
+        public string[,] Table { get; set; }
         private CYK uniqueInstance;
 
         /// <summary>
@@ -20,7 +20,7 @@ namespace cyk_grammar_tester.Model
         }
 
         /// <summary>
-        ///     Method for get the CYK instance; if its the first time the method create the instance.
+        ///     Method to get the CYK instance; if its the first time the method create the instance.
         /// </summary>
         /// <returns>uniqueInstance</returns>
         public CYK GetInstance()
@@ -34,7 +34,7 @@ namespace cyk_grammar_tester.Model
 
         /// <summary>
         ///     <para>
-        ///         Method for adding content to the table of the CYK.
+        ///         Method to add content to the table of the CYK.
         ///     </para>
         ///     <para>
         ///         The precondition is that table was already created.
@@ -42,7 +42,7 @@ namespace cyk_grammar_tester.Model
         /// </summary>
         /// <param name="row">The row of the content to be insert. The row must be in the table size.</param>
         /// <param name="col">The column of the content to be insert. The column must be in the table size.</param>
-        /// <param name="value">The content to be added in the table.</param>
+        /// <param name="value">The content to be added in the table.The format is "variable,variable,..."</param>
         public void AddInTable(int row, int col, string value)
         {
             Table[row, col] = value;
@@ -60,7 +60,7 @@ namespace cyk_grammar_tester.Model
 
         /// <summary>
         ///     <para>
-        ///         Method for getting the content of a row column specify.
+        ///         Method to get the content of a row column specify.
         ///     </para>
         ///     <para>
         ///         The precondition is that table was already created. The return could be null.

@@ -69,7 +69,7 @@ namespace cyk_grammar_tester.Model
         /// <param name="row">The row for the content asked.</param>
         /// <param name="col">The column for the content asked.</param>
         /// <returns></returns>
-        public string getContent(int row, int col)
+        public string GetContent(int row, int col)
         {
             return Table[row, col];
         }

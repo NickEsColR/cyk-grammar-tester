@@ -41,7 +41,7 @@ namespace cyk_grammar_tester.Model
                     string[] productions = Grammar[rowGrammar, 1].Split(',');
                     foreach (string production in productions)
                     {
-                        if (production.Equals(terminal))
+                        if (production.Equals(char.ToString(terminal)))
                         {
                             if (!value.Contains(Grammar[rowGrammar, 0]))
                             {

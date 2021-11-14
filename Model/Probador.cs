@@ -76,8 +76,39 @@ namespace cyk_grammar_tester.Model
         /// <returns>Bool thats true if is produce and false if is not produce.</returns>
         public bool IsProduceByGrammar()
         {
+            for(int j = 2; j < cyk.Table.GetLength(1); j++)
+            {
+                int limit = cyk.Table.GetLength(1) - j;
+                for(int i = 0; i < limit; i++)
+                {
+                    string value = "";
+                    for(int k = 1; k < j; k++)
+                    {
+                        string prevalue = GetVariablesProduce(cyk.GetContent(i, k), cyk.GetContent(i + k, j - k));
+                        if(prevalue != "")
+                        {
+                            if (value == "")
+                            {
+                                value = prevalue;
+                            }
+                            else
+                            {
+                                string[] variables = prevalue.Split(',');
+                                for (int num = 0; num < variables.Length && value.Split(',').Length < Grammar.GetLength(0); num++)
+                                {
+                                    if (!value.Contains(variables[num]))
+                                    {
+                                        value += "," + variables[num];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    cyk.AddInTable(i, j, value);
+                }
 
-            return false; 
+            }
+            return cyk.IsProduceByGrammar(); 
         }
 
         /// <summary>

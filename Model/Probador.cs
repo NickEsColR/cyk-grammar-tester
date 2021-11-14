@@ -10,23 +10,13 @@ namespace cyk_grammar_tester.Model
     {
         public string[,] Grammar { get; set; }
         public string TestString { get; set; }
-        private CYK cyk;
+        public string[,] Table { get; set; }
 
         /// <summary>
         ///     The constructor of the Probador class.
         /// </summary>
         public Probador()
         {
-
-        }
-
-        /// <summary>
-        ///     The method to set the cyk relation.
-        /// </summary>
-        /// <param name="cyk">The CYK previous got according to the design.It has the table created.</param>
-        public void SetCYK(CYK cyk)
-        {
-            this.cyk = cyk;
         }
         
         /// <summary>
@@ -40,12 +30,12 @@ namespace cyk_grammar_tester.Model
         public void GenerateTable()
         {
             int size = TestString.Length;
-            string[,] table = new string[size, size+1];
+            Table = new string[size, size+1];
             int row = 0;
             foreach (char terminal in TestString)
             {
                 string value = "";
-                table[row, 0] = char.ToString(terminal);
+                Table[row, 0] = char.ToString(terminal);
                 for(int rowGrammar = 0; rowGrammar < Grammar.GetLength(0); rowGrammar++)
                 {
                     string[] productions = Grammar[rowGrammar, 1].Split(',');
@@ -67,10 +57,9 @@ namespace cyk_grammar_tester.Model
                         }
                     }
                 }      
-                table[row, 1] = value;
+                Table[row, 1] = value;
                 row++;
             }
-            cyk.Table = table;
         }
 
         /// <summary>
@@ -79,15 +68,15 @@ namespace cyk_grammar_tester.Model
         /// <returns>Bool thats true if is produce and false if is not produce.</returns>
         public bool IsProduceByGrammar()
         {
-            for(int j = 2; j < cyk.Table.GetLength(1); j++)
+            for(int j = 2; j < Table.GetLength(1); j++)
             {
-                int limit = cyk.Table.GetLength(1) - j;
+                int limit = Table.GetLength(1) - j;
                 for(int i = 0; i < limit; i++)
                 {
                     string value = "";
                     for(int k = 1; k < j; k++)
                     {
-                        string prevalue = GetVariablesProduce(cyk.GetContent(i, k), cyk.GetContent(i + k, j - k));
+                        string prevalue = GetVariablesProduce(Table[i, k], Table[i + k, j - k]);
                         if(prevalue != "")
                         {
                             if (value == "")
@@ -107,11 +96,10 @@ namespace cyk_grammar_tester.Model
                             }
                         }
                     }
-                    cyk.AddInTable(i, j, value);
+                    Table[i, j] = value;
                 }
-
             }
-            return cyk.IsProduceByGrammar(); 
+            return Table[0, Table.GetLength(1) - 1].Contains("S");
         }
 
         /// <summary>

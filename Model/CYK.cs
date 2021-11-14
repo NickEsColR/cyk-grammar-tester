@@ -9,7 +9,7 @@ namespace cyk_grammar_tester.Model
     class CYK
     {
         public string[,] Table { get; set; }
-        private CYK uniqueInstance;
+        private static CYK uniqueInstance;
 
         /// <summary>
         ///     private constructor for CYK class to ensure unique instanciation.
@@ -23,7 +23,7 @@ namespace cyk_grammar_tester.Model
         ///     Method to get the CYK instance; if its the first time the method create the instance.
         /// </summary>
         /// <returns>uniqueInstance</returns>
-        public CYK GetInstance()
+        public static CYK GetInstance()
         {
             if (uniqueInstance == null)
             {

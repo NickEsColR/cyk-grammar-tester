@@ -28,7 +28,7 @@ namespace cyk_grammar_tester.Model
         {
             this.cyk = cyk;
         }
-
+        
         /// <summary>
         ///     <para>
         ///         The method to initialize the table with the size required.
@@ -55,15 +55,18 @@ namespace cyk_grammar_tester.Model
                         {
                             if (!value.Contains(Grammar[rowGrammar, 0]))
                             {
-                                value += Grammar[rowGrammar, 0] + ",";
+                                if(value == "")
+                                {
+                                    value = Grammar[rowGrammar, 0];
+                                }
+                                else
+                                {
+                                    value += "," + Grammar[rowGrammar, 0];
+                                }
                             }
                         }
                     }
-                }
-                if(value[value.Length - 1] == ',')
-                {
-                    value = value.Substring(0, value.Length - 1);
-                }
+                }      
                 table[row, 1] = value;
                 row++;
             }
@@ -147,7 +150,15 @@ namespace cyk_grammar_tester.Model
                             found = true;
                             if (!value.Contains(Grammar[row, 0]))
                             {
-                                value += Grammar[row, 0] + ",";
+                                if(value == "")
+                                {
+                                    value = Grammar[row, 0];
+                                }
+                                else
+                                {
+                                    value += "," + Grammar[row, 0];
+                                }
+                                
                             }
                         }
                     }
@@ -156,10 +167,6 @@ namespace cyk_grammar_tester.Model
                 {
                     break;
                 }
-            }
-            if (value[value.Length - 1] == ',')
-            {
-                value = value.Substring(0, value.Length - 1);
             }
             return value;
         }

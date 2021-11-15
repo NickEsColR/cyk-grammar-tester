@@ -29,6 +29,7 @@ namespace cyk_grammar_tester
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.lblVariable = new System.Windows.Forms.Label();
             this.lblProduction = new System.Windows.Forms.Label();
             this.lblActualVariable = new System.Windows.Forms.Label();
@@ -199,6 +200,7 @@ namespace cyk_grammar_tester
             this.Controls.Add(this.lblActualVariable);
             this.Controls.Add(this.lblProduction);
             this.Controls.Add(this.lblVariable);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Grammar Tester with CYK";
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrammar)).EndInit();

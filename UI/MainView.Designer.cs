@@ -42,6 +42,7 @@ namespace cyk_grammar_tester
             this.txtStringTest = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvGrammar = new System.Windows.Forms.DataGridView();
+            this.btnClear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGrammar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -90,10 +91,11 @@ namespace cyk_grammar_tester
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.DarkRed;
             this.lblMsg.Location = new System.Drawing.Point(55, 195);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(0, 13);
+            this.lblMsg.Size = new System.Drawing.Size(0, 24);
             this.lblMsg.TabIndex = 5;
             // 
             // btnAddVariable
@@ -141,6 +143,7 @@ namespace cyk_grammar_tester
             this.txtStringTest.Name = "txtStringTest";
             this.txtStringTest.Size = new System.Drawing.Size(199, 20);
             this.txtStringTest.TabIndex = 10;
+            this.txtStringTest.TextChanged += new System.EventHandler(this.txtStringTest_TextChanged);
             // 
             // label1
             // 
@@ -167,11 +170,22 @@ namespace cyk_grammar_tester
             this.dgvGrammar.Size = new System.Drawing.Size(382, 285);
             this.dgvGrammar.TabIndex = 14;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(38, 153);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(98, 23);
+            this.btnClear.TabIndex = 15;
+            this.btnClear.Text = "CLEAR";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 400);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.dgvGrammar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStringTest);
@@ -208,6 +222,7 @@ namespace cyk_grammar_tester
         private System.Windows.Forms.TextBox txtStringTest;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvGrammar;
+        private System.Windows.Forms.Button btnClear;
     }
 }
 

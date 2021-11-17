@@ -92,11 +92,11 @@ namespace cyk_grammar_tester
             // lblMsg
             // 
             this.lblMsg.AutoSize = true;
-            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMsg.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblMsg.Location = new System.Drawing.Point(55, 195);
+            this.lblMsg.Location = new System.Drawing.Point(12, 197);
             this.lblMsg.Name = "lblMsg";
-            this.lblMsg.Size = new System.Drawing.Size(0, 24);
+            this.lblMsg.Size = new System.Drawing.Size(0, 20);
             this.lblMsg.TabIndex = 5;
             // 
             // btnAddVariable
@@ -144,7 +144,7 @@ namespace cyk_grammar_tester
             this.txtStringTest.Name = "txtStringTest";
             this.txtStringTest.Size = new System.Drawing.Size(199, 20);
             this.txtStringTest.TabIndex = 10;
-            this.txtStringTest.TextChanged += new System.EventHandler(this.txtStringTest_TextChanged);
+            this.txtStringTest.Click += new System.EventHandler(this.txtStringTest_Click);
             // 
             // label1
             // 
@@ -168,7 +168,7 @@ namespace cyk_grammar_tester
             this.dgvGrammar.Location = new System.Drawing.Point(406, 59);
             this.dgvGrammar.Name = "dgvGrammar";
             this.dgvGrammar.ReadOnly = true;
-            this.dgvGrammar.Size = new System.Drawing.Size(382, 285);
+            this.dgvGrammar.Size = new System.Drawing.Size(382, 249);
             this.dgvGrammar.TabIndex = 14;
             // 
             // btnClear

@@ -172,7 +172,7 @@ namespace cyk_grammar_tester
             probador = new Probador();
         }
 
-        private void txtStringTest_TextChanged(object sender, EventArgs e)
+        private void txtStringTest_Click(object sender, EventArgs e)
         {
             txtStringTest.Text = "";
             txtStringTest.ForeColor = Color.Black;
